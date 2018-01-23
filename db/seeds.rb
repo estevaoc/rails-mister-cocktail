@@ -19,3 +19,16 @@ ingredients_parsed = ingredients['drinks']
 ingredients_parsed.each do |ingredient|
   Ingredient.create(name: ingredient['strIngredient1'])
 end
+
+Cocktail.destroy_all
+url = "http://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail"
+cocktails_serialized = open(url).read
+cocktails = JSON.parse(cocktails_serialized)
+
+cocktails_parsed = cocktails['drinks']
+
+cocktails_parsed.each do |cocktail|
+  coquetel = Cocktail.new(name: cocktail['strDrink'])
+  coquetel.remote_photo_url = cocktail['strDrinkThumb']
+  coquetel.save
+end
