@@ -3,3 +3,4 @@
 <h2><%= @cocktail.name %></h2>
 <p><%= @cocktail.ingredient %></p>
 <p><%= @cocktail.dose %></p>
+<%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>

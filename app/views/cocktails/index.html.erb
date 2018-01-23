@@ -3,3 +3,8 @@
 <% @cocktails.each do |cocktail| %>
   <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
 <% end %>
+<%= cl_image_tag("iyz5dhnfrcfnazafao9d",
+      width: 400, height: 300, crop: :fill) %>
+
+<%= cl_image_tag("qa7khs3uu2n5e5od1nc4",
+      width: 150, height: 150, crop: :thumb, gravity: :face) %>
